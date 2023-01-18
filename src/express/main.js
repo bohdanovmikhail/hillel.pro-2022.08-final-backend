@@ -17,9 +17,8 @@ app.get('/main', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  socket.on('sendClientMessage', msg => {
-
-    io.emit('sendServerMessage', msg);
+  socket.on('sendClientMessage', (msgData) => {
+    io.emit('sendServerMessage', msgData);
   });
 });
 
